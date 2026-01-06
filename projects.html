@@ -7,27 +7,32 @@
 </head>
 
 <body>
-  <header class="nav">
+  <header class="navbar">
     <h1>Projects</h1>
-    <nav>
+    <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
     </nav>
   </header>
 
-  <main>
-    <h2>Bug Squash Game (Web Version)</h2>
+  <main class="container">
+    <section class="card">
+      <h2>Bug Squash Game</h2>
+      <p>
+        This is a browser-based adaptation of my original Python Turtle
+        “Bug Squash” project. It was rewritten in JavaScript so it can run
+        directly in the browser.
+      </p>
+    </section>
 
-    <p class="description">
-      This game is a browser-based adaptation of my original Python Turtle
-      “Bug Squash” project. It uses JavaScript instead of Turtle graphics so it
-      can run directly in the browser.
-    </p>
+    <section class="card">
+      <div class="game-header">
+        <p id="score">Score: 0</p>
+      </div>
 
-    <div class="game-container">
-      <p id="score">Score: 0</p>
       <div id="game-area"></div>
-    </div>
+    </section>
   </main>
 
   <script src="bug.js"></script>
