@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Generative Art</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="navbar">
+    <h1>Generative Art</h1>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="art.html">Generative Art</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Python Turtle → JavaScript Canvas</h2>
+      <p>
+        This animation is a browser-based adaptation of my original Python
+        Turtle project (1.1.9). The logic and geometry were preserved while
+        translating the code into JavaScript using the HTML canvas.
+      </p>
+    </section>
+
+    <section class="card">
+      <canvas id="artCanvas" width="400" height="400"></canvas>
+    </section>
+  </main>
+
+  <script src="art.js"></script>
+</body>
+</html>
