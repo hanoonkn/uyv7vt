@@ -2,35 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Web Development Portfolio</title>
+  <title>My Web Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header class="nav">
+  <header class="navbar">
     <h1>My Portfolio</h1>
-    <nav>
+    <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
     </nav>
   </header>
 
-  <main>
-    <h2>Welcome</h2>
-    <p>
-      This website showcases my web development work and adaptations of my
-      previous Python projects into browser-based applications.
-    </p>
+  <main class="container">
+    <section class="card">
+      <h2>Welcome</h2>
+      <p>
+        This website demonstrates my understanding of HTML, CSS, Flexbox,
+        accessibility, and JavaScript through original projects and adaptations
+        of my previous Python work.
+      </p>
+    </section>
 
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
-         alt="JavaScript logo">
+    <section class="card flex-row">
+      <div>
+        <h3>What I Used</h3>
+        <ul>
+          <li>HTML structure</li>
+          <li>CSS styling</li>
+          <li>CSS classes</li>
+          <li>Flexbox layout</li>
+          <li>JavaScript interactivity</li>
+        </ul>
+      </div>
 
-    <ul>
-      <li>HTML structure</li>
-      <li>CSS styling and layout</li>
-      <li>Flexbox organization</li>
-      <li>JavaScript interactivity</li>
-    </ul>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+        alt="JavaScript logo">
+    </section>
   </main>
 </body>
 </html>
