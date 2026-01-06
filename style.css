@@ -1,51 +1,68 @@
+/* Global styles */
 body {
+  margin: 0;
+  font-family: Arial, sans-serif;
   background-color: #ffffff;
   color: #000000;
-  font-family: Arial, sans-serif;
-  margin: 0;
 }
 
-.nav {
+/* Navigation bar */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #0b3c5d;
-  padding: 15px;
+  padding: 15px 25px;
 }
 
-.nav h1 {
+.navbar h1 {
   color: #ffffff;
 }
 
-.nav a {
+.nav-links a {
   color: #ffffff;
   text-decoration: none;
-  margin-left: 15px;
+  margin-left: 20px;
   font-weight: bold;
 }
 
-main {
+/* Layout */
+.container {
+  max-width: 1000px;
+  margin: auto;
   padding: 20px;
 }
 
-img {
-  width: 200px;
-  display: block;
-  margin: 20px auto;
+/* Cards */
+.card {
+  background-color: #f4f4f4;
+  border: 2px solid #000000;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-.description {
-  max-width: 600px;
+/* Flexbox usage */
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
-.game-container {
-  margin-top: 20px;
+.flex-row img {
+  width: 150px;
 }
 
+/* Game */
 #game-area {
   width: 400px;
   height: 300px;
   border: 3px solid #000000;
+  background-color: #e6e6e6;
   position: relative;
-  background-color: #f2f2f2;
+}
+
+.game-header {
+  font-weight: bold;
+  margin-bottom: 10px;
 }
