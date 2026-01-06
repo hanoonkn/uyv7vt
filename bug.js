@@ -1,32 +1,63 @@
-let score = 0;
-const scoreText = document.getElementById("score");
 const gameArea = document.getElementById("game-area");
+const scoreText = document.getElementById("score");
+const timerText = document.getElementById("timer");
+
+let score = 0;
+let timer = 30;
+let bugs = [];
+
+const frames = ["worm0", "worm1", "worm2"];
 
 function spawnBug() {
   const bug = document.createElement("div");
+  bug.className = "bug";
+  bug.frame = 0;
+  bug.dir = Math.random() < 0.5 ? -1 : 1;
 
-  bug.style.width = "30px";
-  bug.style.height = "30px";
-  bug.style.backgroundColor = "#1b7f1b";
-  bug.style.borderRadius = "50%";
-  bug.style.position = "absolute";
+  bug.style.left = Math.random() * 340 + "px";
+  bug.style.top = Math.random() * 260 + "px";
 
-  bug.style.left = Math.random() * 370 + "px";
-  bug.style.top = Math.random() * 270 + "px";
-
-  bug.onclick = () => {
-    score++;
-    scoreText.textContent = "Score: " + score;
-    bug.remove();
-  };
+  bug.onclick = () => squash(bug);
 
   gameArea.appendChild(bug);
-
-  setTimeout(() => {
-    if (gameArea.contains(bug)) {
-      bug.remove();
-    }
-  }, 1200);
+  bugs.push(bug);
 }
 
-setInterval(spawnBug, 1000);
+function animateBugs() {
+  bugs.forEach(bug => {
+    bug.className = "bug " + frames[bug.frame];
+    bug.frame = (bug.frame + 1) % 3;
+
+    let x = bug.offsetLeft + 8 * bug.dir;
+    if (x <= 0 || x >= 370) bug.dir *= -1;
+    bug.style.left = Math.max(0, Math.min(370, x)) + "px";
+  });
+}
+
+function squash(bug) {
+  score++;
+  scoreText.textContent = "Score: " + score;
+  bug.className = "bug squashed";
+  setTimeout(() => {
+    gameArea.removeChild(bug);
+    bugs = bugs.filter(b => b !== bug);
+    spawnBug();
+  }, 200);
+}
+
+function countdown() {
+  if (timer > 0) {
+    timer--;
+    timerText.textContent = "Timer: " + timer;
+  } else {
+    clearInterval(loop);
+    bugs.forEach(b => b.remove());
+    bugs = [];
+    timerText.textContent = "GAME OVER";
+  }
+}
+
+for (let i = 0; i < 4; i++) spawnBug();
+
+const loop = setInterval(animateBugs, 150);
+setInterval(countdown, 1000);
